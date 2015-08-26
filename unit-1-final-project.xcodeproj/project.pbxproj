@@ -144,6 +144,12 @@
 		3D2883551B8C02B400DE02B8 /* GOWorkout */ = {
 			isa = PBXGroup;
 			children = (
+				3DDB60BF1B893332008194DB /* WorkoutManager.h */,
+				3DDB60C01B893332008194DB /* WorkoutManager.m */,
+				3DDB60C21B893413008194DB /* Workout.h */,
+				3DDB60C31B893413008194DB /* Workout.m */,
+				3DDB60C51B893477008194DB /* Exercises.h */,
+				3DDB60C61B893477008194DB /* Exercises.m */,
 				9ACCFF3B1B8B991000F1693C /* GOWorkoutsTableViewController.h */,
 				9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */,
 				9AD5F5761B8A27B3004F25D6 /* GOTimerViewController.h */,
@@ -190,15 +196,9 @@
 				3D2883541B8C02AE00DE02B8 /* GOStopwatch */,
 				3D2883531B8C02A500DE02B8 /* GOCalendar */,
 				9A553E361B8D125800A0230B /* GOFight */,
-				3DDB60BF1B893332008194DB /* WorkoutManager.h */,
-				3DDB60C01B893332008194DB /* WorkoutManager.m */,
-				3DDB60C21B893413008194DB /* Workout.h */,
-				3DDB60C31B893413008194DB /* Workout.m */,
-				3DDB60C51B893477008194DB /* Exercises.h */,
-				3DDB60C61B893477008194DB /* Exercises.m */,
-				3D2D2F0B1B86B5A300E210BA /* Assets.xcassets */,
-				3D2D2F0D1B86B5A300E210BA /* LaunchScreen.storyboard */,
 				3D28835C1B8D268F00DE02B8 /* Main.storyboard */,
+				3D2D2F0D1B86B5A300E210BA /* LaunchScreen.storyboard */,
+				3D2D2F0B1B86B5A300E210BA /* Assets.xcassets */,
 				3D2D2EFF1B86B5A300E210BA /* Supporting Files */,
 			);
 			path = "unit-1-final-project";

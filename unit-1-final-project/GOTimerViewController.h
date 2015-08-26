@@ -16,8 +16,10 @@
 @property (nonatomic) NSInteger currentExerciseIndex;
 @property (nonatomic) Exercises *exercise;
 @property (nonatomic) NSString * currentExerciseName;
-@property (nonatomic) NSTimeInterval currentExerciseTime;
 @property (nonatomic) NSString *currentExerciseImage;
+//timeIntervals
+@property (nonatomic) NSTimeInterval currentExerciseTime;
+//@property (nonatomic) NSTimeInterval nextNumber;
 @property (nonatomic) NSTimeInterval totalTime;
 
 //Properties of ViewController
