@@ -28,6 +28,7 @@
 		9A8CD52B1B87900000A194D9 /* GOStopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CD52A1B87900000A194D9 /* GOStopwatchViewController.m */; };
 		9ACCFF3D1B8B991000F1693C /* GOWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */; };
 		9AD5F5781B8A27B3004F25D6 /* GOTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5F5771B8A27B3004F25D6 /* GOTimerViewController.m */; };
+		9ADCAB681B8D7B4A009E6FF0 /* NikeTotal90.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADCAB671B8D7AC2009E6FF0 /* NikeTotal90.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,6 @@
 		3DDB60C61B893477008194DB /* Exercises.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercises.m; sourceTree = "<group>"; };
 		9A553E251B8CFC0700A0230B /* GOFightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOFightViewController.h; sourceTree = "<group>"; };
 		9A553E261B8CFC0700A0230B /* GOFightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOFightViewController.m; sourceTree = "<group>"; };
-		9A553E2F1B8D055B00A0230B /* NikeTotal90.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NikeTotal90.ttf; path = ../../../../../Library/Fonts/NikeTotal90.ttf; sourceTree = "<group>"; };
 		9A553E301B8D0D4700A0230B /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bell.mp3; path = ../../BoxingTimer/BoxingTimer/sounds/bell.mp3; sourceTree = "<group>"; };
 		9A553E311B8D0D4700A0230B /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = buzzer.mp3; path = ../../BoxingTimer/BoxingTimer/sounds/buzzer.mp3; sourceTree = "<group>"; };
 		9A553E341B8D101B00A0230B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -88,6 +88,7 @@
 		9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOWorkoutsTableViewController.m; sourceTree = "<group>"; };
 		9AD5F5761B8A27B3004F25D6 /* GOTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOTimerViewController.h; sourceTree = "<group>"; };
 		9AD5F5771B8A27B3004F25D6 /* GOTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOTimerViewController.m; sourceTree = "<group>"; };
+		9ADCAB671B8D7AC2009E6FF0 /* NikeTotal90.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NikeTotal90.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +209,7 @@
 			children = (
 				9A553E301B8D0D4700A0230B /* bell.mp3 */,
 				9A553E311B8D0D4700A0230B /* buzzer.mp3 */,
-				9A553E2F1B8D055B00A0230B /* NikeTotal90.ttf */,
+				9ADCAB671B8D7AC2009E6FF0 /* NikeTotal90.ttf */,
 				3D2D2F101B86B5A300E210BA /* Info.plist */,
 				3D2D2F001B86B5A300E210BA /* main.m */,
 			);
@@ -346,11 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ADCAB681B8D7B4A009E6FF0 /* NikeTotal90.ttf in Resources */,
 				3D2D2F0F1B86B5A300E210BA /* LaunchScreen.storyboard in Resources */,
 				9A553E331B8D0D4700A0230B /* buzzer.mp3 in Resources */,
 				9A553E321B8D0D4700A0230B /* bell.mp3 in Resources */,
 				3D2D2F0C1B86B5A300E210BA /* Assets.xcassets in Resources */,
-				3D2883581B8C031400DE02B8 /* NikeTotal90.ttf in Resources */,
 				3D28835E1B8D268F00DE02B8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
