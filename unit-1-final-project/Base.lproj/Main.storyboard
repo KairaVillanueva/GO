@@ -678,12 +678,12 @@
                                 <rect key="frame" x="0.0" y="451" width="600" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHa-gq-b3p">
-                                        <rect key="frame" x="119" y="0.0" width="125" height="100"/>
+                                        <rect key="frame" x="164" y="0.0" width="80" height="100"/>
                                         <color key="backgroundColor" red="0.066539661236346803" green="1" blue="0.39721881712711471" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="weh-if-2rn"/>
+                                            <constraint firstAttribute="width" constant="80" id="weh-if-2rn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="START">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -701,6 +701,9 @@
                                         <state key="normal" title="STOP">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="stopPressed:" destination="0Hs-ol-Be9" eventType="touchUpInside" id="P86-ZM-qWX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-mE-3oR">
                                         <rect key="frame" x="356" y="0.0" width="80" height="100"/>
@@ -712,6 +715,9 @@
                                         <state key="normal" title="RESET">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="resetPressed:" destination="0Hs-ol-Be9" eventType="touchUpInside" id="ntc-CG-tl5"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -774,7 +780,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTO-Ut-h0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2098" y="914"/>
+            <point key="canvasLocation" x="1968" y="742"/>
         </scene>
         <!--Go Custom Workout-->
         <scene sceneID="EsA-xu-HVW">

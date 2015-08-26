@@ -24,6 +24,7 @@
 @property (nonatomic) int numberOfRounds;
 @property (nonatomic) NSString * counterString;
 @property (nonatomic) NSString * restString;
+@property (nonatomic) BOOL isAtRest;
 //Audio Player
 @property (nonatomic) AVAudioPlayer *bellPlayer;
 
@@ -35,26 +36,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isAtRest = FALSE;
+    
     //set round time
     self.roundTime = 15.0;
     
-    NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:self.roundTime];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"mm : ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    self.counterString = [dateFormatter stringFromDate:timeDate];
-    self.counterLabel.text = self.counterString;
+    [self updateCounterLabel];
     
     //set rest time
     
     self.restTime = 10.0;
     
-    NSDate *restDate = [NSDate dateWithTimeIntervalSince1970:self.restTime];
-    // NSDateFormatter *dateFormatterTwo = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@ "mm : ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
-    self.restString = [dateFormatter stringFromDate:restDate];
-    self.restLabel.text = self.restString;
+    [self updateRestLabel];
     
     //set Number of Rounds
     self.numberOfRounds = 0;
@@ -68,6 +62,10 @@
     // Create audio player object and initialize with URL to sound
     self.bellPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
     
+    self.startButton.userInteractionEnabled = YES;
+    self.resetButton.userInteractionEnabled = NO;
+    self.stopButton.userInteractionEnabled = NO;
+    
 }
 - (void) initializeMainTimer {
     
@@ -77,6 +75,7 @@
                                                     userInfo:NULL
                                                      repeats:YES];
     
+    self.isAtRest = FALSE;
 }
 - (void) initializeRestTimer {
     
@@ -86,6 +85,8 @@
                                                     userInfo:NULL
                                                      repeats:YES];
     
+    
+    self.isAtRest = TRUE;
 }
 
 - (void) updateCounterLabel {
@@ -127,12 +128,52 @@
 
 - (IBAction)startPressed:(UIButton *)sender {
     
-    if (self.mainTimer == nil){
+    if (self.mainTimer == nil && !self.isAtRest){
         [self initializeMainTimer];
         [self playBellAtRoundStart];
+    } else if (self.mainTimer && !self.isAtRest){
+        [self initializeMainTimer];
+    } else if (self.isAtRest){
+        [self initializeRestTimer];
     }
     
+    self.startButton.userInteractionEnabled = NO;
+    self.resetButton.userInteractionEnabled = NO;
+    self.stopButton.userInteractionEnabled = YES;
 }
+
+- (IBAction)stopPressed:(UIButton *)sender {
+    
+    self.startButton.userInteractionEnabled = YES;
+    self.resetButton.userInteractionEnabled = YES;
+    self.stopButton.userInteractionEnabled = NO;
+    
+
+    [self.mainTimer invalidate];
+    [self.restTimer invalidate];
+   
+
+}
+- (IBAction)resetPressed:(UIButton *)sender {
+    
+    [self.mainTimer invalidate];
+    [self.restTimer invalidate];
+    self.mainTimer = nil;
+    self.restTimer = nil;
+    
+    [self updateRoundTime];
+    [self updateRestTime];
+    
+    self.restTime  = 10.0;
+    self.numberOfRounds = 0;
+    
+    self.roundNumberLabel.text = [NSString stringWithFormat:@"%d", self.numberOfRounds];
+    
+    self.startButton.userInteractionEnabled = YES;
+    self.stopButton.userInteractionEnabled = NO;
+    self.resetButton.userInteractionEnabled = NO;
+}
+
 - (void) updateTimer {
     self.roundTime -= 1;
     [self updateCounterLabel];
@@ -161,6 +202,10 @@
 }
 - (void) playBellAtRoundStart {
     [self.bellPlayer play];
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [self.mainTimer invalidate];
+    [self.restTimer invalidate];
 }
 
 
