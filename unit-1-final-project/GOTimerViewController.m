@@ -40,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     self.continueButton.hidden = YES;
@@ -48,11 +49,10 @@
     
 //timer starts when viewLoads
     [self initializeTimer];
-    [self initializeTotalTimer];
+    
     
     NSLog(@"previous total time: %f", self.previousMainTotalTime);
     
-    self.mainTotalTime = self.mainTotalTime + self.previousMainTotalTime;
     
     
 //setting fonts
@@ -86,20 +86,37 @@
     self.exerciseImageView.image = view.image;
    
     
+    self.mainTotalTime = self.mainTotalTime + self.previousMainTotalTime;
+    
+    self.currentTime = [NSDate dateWithTimeIntervalSince1970:self.mainTotalTime];
+    [timerFormatter setDateFormat:@"mm : ss"];
+    [timerFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
+    NSString *totalTimerString = [timerFormatter stringFromDate:self.currentTime];
+    
+    self.totalTimeExerciseLabel.text = totalTimerString;
+    
     if (self.currentExerciseIndex == (NSInteger)nil){
         self.currentExerciseIndex = 0;
     }
     
+    if (self.currentExerciseIndex == 0){
+        [self.totalTimer invalidate];
+        self.totalTimeExerciseLabel.text = @"Get ready to GO!";
+        self.mainTotalTime = self.mainTotalTime - 1;
+    } else if (self.currentExerciseIndex >= 1){
+        [self initializeTotalTimer];
+    }
     
     
 }
 
 //method to initialize Total Workout Timer
 - (void) initializeTotalTimer{
-    self.totalTimer = [NSTimer scheduledTimerWithTimeInterval:1.0/100.0
-                                                          target:self
-                                                        selector:@selector(updateTotalTimer)
-                                                        userInfo:nil repeats:YES];
+    self.totalTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self
+                                                     selector:@selector(updateTotalTimer)
+                                                     userInfo:nil
+                                                      repeats:YES];
     
     self.mainPreviousTime = [[NSDate alloc] init];
 }
@@ -111,6 +128,7 @@
                                                 userInfo:nil
                                                  repeats:YES];
     
+    self.timerMainPreviousTime = [[NSDate alloc]init];
 }
 
 - (void) updateTotalTimer {
@@ -119,6 +137,7 @@
     
     NSTimeInterval elapsedTime = [self.currentTime timeIntervalSinceDate: self.mainPreviousTime];
     self.mainPreviousTime = self.currentTime;
+   // double one = 1.0;
     
     self.mainTotalTime += elapsedTime;
     
@@ -137,6 +156,11 @@
     
 }
 - (void) updateExerciseTimer {
+    
+//    NSDate *currentTimer = [[NSDate alloc] init];
+//    
+//    NSTimeInterval elapsedTime = [currentTimer timeIntervalSinceDate:self.timerMainPreviousTime];
+//    self.timerMainPreviousTime = currentTimer;
     
     double one = 1.0;
     
@@ -172,7 +196,7 @@
     nextViewController.currentExerciseIndex = self.currentExerciseIndex+1;
     [self.timer invalidate];
     [self.navigationController pushViewController:nextViewController animated:YES];
-    nextViewController.previousMainTotalTime = self.mainTotalTime;
+    nextViewController.previousMainTotalTime = self.mainTotalTime + 1;
     NSLog(@"main total time: %f", (self.mainTotalTime + self.previousMainTotalTime));
 
 }
@@ -188,7 +212,12 @@
 }
 - (IBAction)continuePressed:(UIButton *)sender {
     [self initializeTimer];
-    [self initializeTotalTimer];
+  
+    
+    if (self.currentExerciseIndex >= 1){
+          [self initializeTotalTimer];
+    }
+
     
     self.pauseButton.hidden = NO;
     self.continueButton.hidden = YES;
