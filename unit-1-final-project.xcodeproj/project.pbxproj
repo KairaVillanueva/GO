@@ -25,6 +25,11 @@
 		9A553E321B8D0D4700A0230B /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A553E301B8D0D4700A0230B /* bell.mp3 */; };
 		9A553E331B8D0D4700A0230B /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9A553E311B8D0D4700A0230B /* buzzer.mp3 */; };
 		9A553E351B8D101B00A0230B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A553E341B8D101B00A0230B /* AVFoundation.framework */; };
+		9A7EC3D01B90DE6600D0CFB9 /* GOBuildTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EC3CF1B90DE6600D0CFB9 /* GOBuildTableViewController.m */; };
+		9A7EC3D31B90E3E400D0CFB9 /* BuildManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EC3D21B90E3E400D0CFB9 /* BuildManager.m */; };
+		9A7EC3D61B90E46600D0CFB9 /* BuildWorkout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EC3D51B90E46600D0CFB9 /* BuildWorkout.m */; };
+		9A7EC3D91B90E4F600D0CFB9 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EC3D81B90E4F600D0CFB9 /* CustomTableViewCell.m */; };
+		9A7EC3DC1B90E65B00D0CFB9 /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7EC3DB1B90E65B00D0CFB9 /* CreateWorkoutViewController.m */; };
 		9A8CD52B1B87900000A194D9 /* GOStopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CD52A1B87900000A194D9 /* GOStopwatchViewController.m */; };
 		9ACCFF3D1B8B991000F1693C /* GOWorkoutsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */; };
 		9AD5F5781B8A27B3004F25D6 /* GOTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5F5771B8A27B3004F25D6 /* GOTimerViewController.m */; };
@@ -82,6 +87,16 @@
 		9A553E301B8D0D4700A0230B /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bell.mp3; path = ../../BoxingTimer/BoxingTimer/sounds/bell.mp3; sourceTree = "<group>"; };
 		9A553E311B8D0D4700A0230B /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = buzzer.mp3; path = ../../BoxingTimer/BoxingTimer/sounds/buzzer.mp3; sourceTree = "<group>"; };
 		9A553E341B8D101B00A0230B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9A7EC3CE1B90DE6600D0CFB9 /* GOBuildTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOBuildTableViewController.h; sourceTree = "<group>"; };
+		9A7EC3CF1B90DE6600D0CFB9 /* GOBuildTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOBuildTableViewController.m; sourceTree = "<group>"; };
+		9A7EC3D11B90E3E400D0CFB9 /* BuildManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildManager.h; sourceTree = "<group>"; };
+		9A7EC3D21B90E3E400D0CFB9 /* BuildManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildManager.m; sourceTree = "<group>"; };
+		9A7EC3D41B90E46600D0CFB9 /* BuildWorkout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildWorkout.h; sourceTree = "<group>"; };
+		9A7EC3D51B90E46600D0CFB9 /* BuildWorkout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildWorkout.m; sourceTree = "<group>"; };
+		9A7EC3D71B90E4F600D0CFB9 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		9A7EC3D81B90E4F600D0CFB9 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		9A7EC3DA1B90E65B00D0CFB9 /* CreateWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateWorkoutViewController.h; sourceTree = "<group>"; };
+		9A7EC3DB1B90E65B00D0CFB9 /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
 		9A8CD5291B87900000A194D9 /* GOStopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOStopwatchViewController.h; sourceTree = "<group>"; };
 		9A8CD52A1B87900000A194D9 /* GOStopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GOStopwatchViewController.m; sourceTree = "<group>"; };
 		9ACCFF3B1B8B991000F1693C /* GOWorkoutsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GOWorkoutsTableViewController.h; sourceTree = "<group>"; };
@@ -150,8 +165,6 @@
 				3DDB60C31B893413008194DB /* Workout.m */,
 				3DDB60C51B893477008194DB /* Exercises.h */,
 				3DDB60C61B893477008194DB /* Exercises.m */,
-				9ACCFF3B1B8B991000F1693C /* GOWorkoutsTableViewController.h */,
-				9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */,
 				9AD5F5761B8A27B3004F25D6 /* GOTimerViewController.h */,
 				9AD5F5771B8A27B3004F25D6 /* GOTimerViewController.m */,
 			);
@@ -191,6 +204,9 @@
 			children = (
 				3D2D2F021B86B5A300E210BA /* AppDelegate.h */,
 				3D2D2F031B86B5A300E210BA /* AppDelegate.m */,
+				9ACCFF3B1B8B991000F1693C /* GOWorkoutsTableViewController.h */,
+				9ACCFF3C1B8B991000F1693C /* GOWorkoutsTableViewController.m */,
+				9A7EC3CD1B90DE3400D0CFB9 /* GOBuild */,
 				3D2883561B8C02BA00DE02B8 /* GOCustomWorkout */,
 				3D2883551B8C02B400DE02B8 /* GOWorkout */,
 				3D2883541B8C02AE00DE02B8 /* GOStopwatch */,
@@ -241,6 +257,23 @@
 				9A553E261B8CFC0700A0230B /* GOFightViewController.m */,
 			);
 			name = GOFight;
+			sourceTree = "<group>";
+		};
+		9A7EC3CD1B90DE3400D0CFB9 /* GOBuild */ = {
+			isa = PBXGroup;
+			children = (
+				9A7EC3D11B90E3E400D0CFB9 /* BuildManager.h */,
+				9A7EC3D21B90E3E400D0CFB9 /* BuildManager.m */,
+				9A7EC3D41B90E46600D0CFB9 /* BuildWorkout.h */,
+				9A7EC3D51B90E46600D0CFB9 /* BuildWorkout.m */,
+				9A7EC3CE1B90DE6600D0CFB9 /* GOBuildTableViewController.h */,
+				9A7EC3CF1B90DE6600D0CFB9 /* GOBuildTableViewController.m */,
+				9A7EC3D71B90E4F600D0CFB9 /* CustomTableViewCell.h */,
+				9A7EC3D81B90E4F600D0CFB9 /* CustomTableViewCell.m */,
+				9A7EC3DA1B90E65B00D0CFB9 /* CreateWorkoutViewController.h */,
+				9A7EC3DB1B90E65B00D0CFB9 /* CreateWorkoutViewController.m */,
+			);
+			name = GOBuild;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,19 +410,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7EC3D91B90E4F600D0CFB9 /* CustomTableViewCell.m in Sources */,
 				9A8CD52B1B87900000A194D9 /* GOStopwatchViewController.m in Sources */,
 				9ACCFF3D1B8B991000F1693C /* GOWorkoutsTableViewController.m in Sources */,
+				9A7EC3D01B90DE6600D0CFB9 /* GOBuildTableViewController.m in Sources */,
 				3DDB60C71B893477008194DB /* Exercises.m in Sources */,
+				9A7EC3D61B90E46600D0CFB9 /* BuildWorkout.m in Sources */,
 				9AD5F5781B8A27B3004F25D6 /* GOTimerViewController.m in Sources */,
 				3D28833F1B8B4DC700DE02B8 /* GOCalendarTableViewController.m in Sources */,
 				3D2883391B8A716800DE02B8 /* LapTimerTableViewCell.m in Sources */,
 				3DDB60C41B893413008194DB /* Workout.m in Sources */,
 				3D28833C1B8B49F100DE02B8 /* GOCalendarViewController.m in Sources */,
 				3D28835B1B8CBFC200DE02B8 /* GOCalendarResults.m in Sources */,
+				9A7EC3DC1B90E65B00D0CFB9 /* CreateWorkoutViewController.m in Sources */,
 				3D2D2F041B86B5A300E210BA /* AppDelegate.m in Sources */,
 				3DDB60C11B893332008194DB /* WorkoutManager.m in Sources */,
 				3D2D2F011B86B5A300E210BA /* main.m in Sources */,
 				9A553E271B8CFC0700A0230B /* GOFightViewController.m in Sources */,
+				9A7EC3D31B90E3E400D0CFB9 /* BuildManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

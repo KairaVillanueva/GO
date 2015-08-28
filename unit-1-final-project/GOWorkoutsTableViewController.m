@@ -123,6 +123,12 @@
 //        NSLog(@"%@", sublistVC.currentWorkout);
 //        NSLog(@"%@", workout.workoutName);
     }
+    if([segue.identifier isEqualToString:@"timerSegueFour"])
+    {
+        NSLog(@"GoBuild!");
+        
+        GOFightViewController *sublistVC = segue.destinationViewController;
+    }
 
 }
 @end
