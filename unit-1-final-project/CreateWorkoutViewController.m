@@ -53,6 +53,9 @@
     self.pickerTwo.delegate = self;
     self.pickerTwo.dataSource = self;
     
+    self.model.reps = 10;
+    self.model.sets = 3;
+    self.model.weight = 200;
 }
 
 //Picker View
@@ -107,9 +110,9 @@
         
     } //else if ([pickerView isEqual:self.pickerTwo]){
     
-    NSInteger typeWorkoutRow = [self.picker selectedRowInComponent:0];
+ //   NSInteger typeWorkoutRow = [self.picker selectedRowInComponent:0];
     
-    NSArray *allExercises = [self.model.exercises allKeys];
+  //  NSArray *allExercises = [self.model.exercises allKeys];
     //   NSString *allExercisesType = [allExercises objectAtIndex:typeWorkoutRow];
     
 }
@@ -128,6 +131,8 @@
     
 }
 - (IBAction)weightsSliderValue:(UISlider *)sender {
+    
+    [sender setValue:((int)((sender.value + 2.5) / 5) * 5) animated:NO];
     
     self.weightNumber = [sender value];
     self.model.weight = self.weightNumber;
