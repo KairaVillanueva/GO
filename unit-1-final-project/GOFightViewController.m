@@ -21,6 +21,7 @@
 @property (nonatomic) NSTimer * restTimer;
 @property (nonatomic) NSTimeInterval roundTime;
 @property (nonatomic) NSTimeInterval restTime;
+@property (nonatomic) NSTimeInterval sliderValue;
 @property (nonatomic) int numberOfRounds;
 @property (nonatomic) NSString * counterString;
 @property (nonatomic) NSString * restString;
@@ -28,6 +29,7 @@
 //Audio Player
 @property (nonatomic) AVAudioPlayer *bellPlayer;
 
+@property (weak, nonatomic) IBOutlet UISlider *roundSlider;
 
 
 @end
@@ -37,16 +39,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+   // CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
+   // self.roundSlider.transform = trans;
+
+    
+    
     self.isAtRest = FALSE;
     
     //set round time
-    self.roundTime = 15.0;
+    self.roundTime = 90;
     
     [self updateCounterLabel];
     
     //set rest time
     
-    self.restTime = 10.0;
+    self.restTime = 30.0;
     
     [self updateRestLabel];
     
@@ -67,6 +74,18 @@
     self.stopButton.userInteractionEnabled = NO;
     
 }
+- (IBAction)roundSliderChanged:(UISlider *)sender {
+    
+    [sender setValue:((int)((sender.value + 2.5) / 10) * 10) animated:YES];
+    
+    self.sliderValue = [sender value];
+    
+    self.roundTime = self.sliderValue;
+    
+    [self updateCounterLabel];
+    
+}
+
 - (void) initializeMainTimer {
     
     self.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -111,7 +130,7 @@
     
 }
 - (void) updateRoundTime{
-    self.roundTime = 15.0;
+    self.roundTime = self.sliderValue;
     [self updateCounterLabel];
 }
 - (void) updateRestTime{
@@ -137,6 +156,7 @@
         [self initializeRestTimer];
     }
     
+    self.roundSlider.userInteractionEnabled = NO;
     self.startButton.userInteractionEnabled = NO;
     self.resetButton.userInteractionEnabled = NO;
     self.stopButton.userInteractionEnabled = YES;
@@ -147,7 +167,7 @@
     self.startButton.userInteractionEnabled = YES;
     self.resetButton.userInteractionEnabled = YES;
     self.stopButton.userInteractionEnabled = NO;
-    
+    self.roundSlider.userInteractionEnabled = NO;
 
     [self.mainTimer invalidate];
     [self.restTimer invalidate];
@@ -164,7 +184,8 @@
     [self updateRoundTime];
     [self updateRestTime];
     
-    self.restTime  = 10.0;
+    self.roundTime = self.sliderValue;
+    self.restTime  = 30.0;
     self.numberOfRounds = 0;
     
     self.roundNumberLabel.text = [NSString stringWithFormat:@"%d", self.numberOfRounds];
@@ -207,6 +228,5 @@
     [self.mainTimer invalidate];
     [self.restTimer invalidate];
 }
-
 
 @end

@@ -660,32 +660,55 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="194"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w34-nc-hNU">
-                                        <rect key="frame" x="150" y="22" width="300" height="150"/>
+                                        <rect key="frame" x="175" y="16" width="250" height="150"/>
                                         <color key="backgroundColor" red="1" green="0.5210467205" blue="0.69047673470000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="QhI-qc-b5M"/>
+                                            <constraint firstAttribute="width" constant="250" id="QhI-qc-b5M"/>
                                             <constraint firstAttribute="height" constant="150" id="fHo-91-Ye6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="1" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="jf2-QV-x9w">
+                                        <rect key="frame" x="198" y="164" width="204" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="JUe-bc-n3J"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="roundSliderChanged:" destination="0Hs-ol-Be9" eventType="valueChanged" id="iL2-d0-FNg"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="jf2-QV-x9w" firstAttribute="top" secondItem="w34-nc-hNU" secondAttribute="bottom" constant="-2" id="5zM-Yw-jiI"/>
+                                    <constraint firstItem="jf2-QV-x9w" firstAttribute="leading" secondItem="w34-nc-hNU" secondAttribute="trailing" id="7uo-dN-gUI"/>
+                                    <constraint firstItem="jf2-QV-x9w" firstAttribute="centerY" secondItem="w34-nc-hNU" secondAttribute="centerY" id="GQr-eO-Xdr"/>
+                                    <constraint firstItem="w34-nc-hNU" firstAttribute="centerX" secondItem="ICt-wk-l3T" secondAttribute="centerX" id="JYm-MT-iYn"/>
                                     <constraint firstItem="w34-nc-hNU" firstAttribute="centerY" secondItem="ICt-wk-l3T" secondAttribute="centerY" id="Ppg-mN-mZ6"/>
+                                    <constraint firstItem="w34-nc-hNU" firstAttribute="top" secondItem="ICt-wk-l3T" secondAttribute="top" constant="16" id="Rj6-8R-SjT"/>
+                                    <constraint firstItem="jf2-QV-x9w" firstAttribute="centerX" secondItem="w34-nc-hNU" secondAttribute="centerX" id="hsc-63-S9N"/>
                                     <constraint firstItem="w34-nc-hNU" firstAttribute="centerX" secondItem="ICt-wk-l3T" secondAttribute="centerX" id="rKB-X8-86b"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ppg-mN-mZ6"/>
+                                        <exclude reference="rKB-X8-86b"/>
+                                        <exclude reference="7uo-dN-gUI"/>
+                                        <exclude reference="GQr-eO-Xdr"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="El9-lN-HA6">
                                 <rect key="frame" x="0.0" y="258" width="600" height="193"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13s-Cd-F3s">
-                                        <rect key="frame" x="40" y="59" width="150" height="75"/>
+                                        <rect key="frame" x="40" y="59" width="200" height="75"/>
                                         <color key="backgroundColor" red="1" green="0.5210467205" blue="0.69047673470000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="K2a-SD-HOF"/>
-                                            <constraint firstAttribute="width" constant="150" id="P3Q-z6-mzf"/>
+                                            <constraint firstAttribute="width" constant="200" id="P3Q-z6-mzf"/>
                                             <constraint firstAttribute="height" constant="75" id="ijq-tO-x2X"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="pHg-WI-sEK"/>
                                         </constraints>
@@ -723,7 +746,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPE-FI-Sol">
-                                        <rect key="frame" x="98" y="34" width="35" height="17"/>
+                                        <rect key="frame" x="123" y="34" width="35" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -847,6 +870,7 @@
                         <outlet property="resetButton" destination="MfA-mE-3oR" id="hKm-Fo-gLK"/>
                         <outlet property="restLabel" destination="13s-Cd-F3s" id="9Ac-Lm-V9D"/>
                         <outlet property="roundNumberLabel" destination="mPV-78-8ue" id="HTw-6q-8L9"/>
+                        <outlet property="roundSlider" destination="jf2-QV-x9w" id="iFK-jS-7mD"/>
                         <outlet property="startButton" destination="jHa-gq-b3p" id="6wT-B6-cqd"/>
                         <outlet property="stopButton" destination="kBu-Pa-w02" id="IHZ-zk-Mys"/>
                     </connections>

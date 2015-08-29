@@ -117,6 +117,7 @@
     [self.tableView reloadData];
 }
 - (void) viewWillAppear:(BOOL)animated{
+    
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
 }
@@ -134,7 +135,7 @@
     
     [self.tableView reloadData];
    
-   // [self Back];
+    [self Back];
     
     NSLog(@"checked workouts: %d", self.checkedWorkouts);
 }
@@ -150,7 +151,10 @@
         
         UITableViewCell *tableCell = [self.tableView cellForRowAtIndexPath:indexPath];
         tableCell.accessoryType = UITableViewCellAccessoryNone;
+        tableCell.accessoryView = nil;
         NSLog(@"deleted check mark");
+        
+        [self.tableView reloadData];
     }
     
 }
