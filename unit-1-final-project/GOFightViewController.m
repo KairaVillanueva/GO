@@ -9,6 +9,7 @@
 #import "GOFightViewController.h"
 
 @interface GOFightViewController ()
+@property (weak, nonatomic) IBOutlet UISlider *roundSlider;
 @property (weak, nonatomic) IBOutlet UILabel *counterLabel;
 @property (weak, nonatomic) IBOutlet UILabel *restLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roundNumberLabel;
@@ -29,9 +30,6 @@
 //Audio Player
 @property (nonatomic) AVAudioPlayer *bellPlayer;
 
-@property (weak, nonatomic) IBOutlet UISlider *roundSlider;
-
-
 @end
 
 @implementation GOFightViewController
@@ -42,12 +40,13 @@
    // CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
    // self.roundSlider.transform = trans;
 
-    
-    
+
     self.isAtRest = FALSE;
     
+    self.sliderValue = 90;
+    
     //set round time
-    self.roundTime = 90;
+    self.roundTime = self.sliderValue;
     
     [self updateCounterLabel];
     
@@ -63,7 +62,7 @@
     
     //Creating AV Files
     
-    NSString *path = [NSString stringWithFormat:@"%@/bell.mp3", [[NSBundle mainBundle] resourcePath]];
+    NSString *path = [NSString stringWithFormat:@"%@bell.mp3", [[NSBundle mainBundle] resourcePath]];
     NSURL *soundUrl = [NSURL fileURLWithPath:path];
     
     // Create audio player object and initialize with URL to sound
@@ -72,6 +71,7 @@
     self.startButton.userInteractionEnabled = YES;
     self.resetButton.userInteractionEnabled = NO;
     self.stopButton.userInteractionEnabled = NO;
+    
     
 }
 - (IBAction)roundSliderChanged:(UISlider *)sender {
@@ -95,6 +95,7 @@
                                                      repeats:YES];
     
     self.isAtRest = FALSE;
+
 }
 - (void) initializeRestTimer {
     
@@ -134,7 +135,7 @@
     [self updateCounterLabel];
 }
 - (void) updateRestTime{
-    self.restTime = 10.0;
+    self.restTime = 30.0;
     [self updateRestLabel];
 }
 - (void) updateNumberOfRounds {
@@ -181,18 +182,21 @@
     self.mainTimer = nil;
     self.restTimer = nil;
     
-    [self updateRoundTime];
-    [self updateRestTime];
-    
     self.roundTime = self.sliderValue;
     self.restTime  = 30.0;
     self.numberOfRounds = 0;
     
+    [self updateRoundTime];
+    [self updateRestTime];
+    
     self.roundNumberLabel.text = [NSString stringWithFormat:@"%d", self.numberOfRounds];
     
+    self.roundSlider.userInteractionEnabled = YES;
     self.startButton.userInteractionEnabled = YES;
     self.stopButton.userInteractionEnabled = NO;
     self.resetButton.userInteractionEnabled = NO;
+    
+    [self reloadInputViews];
 }
 
 - (void) updateTimer {
