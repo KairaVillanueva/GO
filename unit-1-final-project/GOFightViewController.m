@@ -35,39 +35,35 @@
 @implementation GOFightViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-   // CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI_2);
-   // self.roundSlider.transform = trans;
-
-
+   // self.counterLabel.font = [UIFont fontWithName:@"digital" size:60];
+   // self.restLabel.font = [UIFont fontWithName:@"digital" size:25];
     self.isAtRest = FALSE;
-    
     self.sliderValue = 90;
     
-    //set round time
+//set round time
     self.roundTime = self.sliderValue;
-    
     [self updateCounterLabel];
     
-    //set rest time
-    
+//set rest time
     self.restTime = 30.0;
-    
     [self updateRestLabel];
     
-    //set Number of Rounds
+//set Number of Rounds
     self.numberOfRounds = 0;
     self.roundNumberLabel.text = [NSString stringWithFormat:@"%d", self.numberOfRounds];
     
-    //Creating AV Files
+//Creating AV Files - code helps clarify what sound file is and of what type
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"bell"
+                                                              ofType:@"mp3"];
+    NSURL *soundUrl = [NSURL fileURLWithPath:soundFilePath];
+
+// Create audio player object and initialize with URL to sound
+    NSError *error;
+   // NSError *error2;
+    NSData *songFile = [[NSData alloc] initWithContentsOfURL:soundUrl options:NSDataReadingMappedIfSafe error:&error];
+    self.bellPlayer = [[AVAudioPlayer alloc] initWithData:songFile error:&error];
     
-    NSString *path = [NSString stringWithFormat:@"%@bell.mp3", [[NSBundle mainBundle] resourcePath]];
-    NSURL *soundUrl = [NSURL fileURLWithPath:path];
-    
-    // Create audio player object and initialize with URL to sound
-    self.bellPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundUrl error:nil];
-    
+//sets button interaction at first state
     self.startButton.userInteractionEnabled = YES;
     self.resetButton.userInteractionEnabled = NO;
     self.stopButton.userInteractionEnabled = NO;
@@ -76,18 +72,16 @@
 }
 - (IBAction)roundSliderChanged:(UISlider *)sender {
     
+//increments slider by 10
     [sender setValue:((int)((sender.value + 2.5) / 10) * 10) animated:YES];
-    
     self.sliderValue = [sender value];
-    
     self.roundTime = self.sliderValue;
-    
     [self updateCounterLabel];
     
 }
 
 - (void) initializeMainTimer {
-    
+
     self.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                       target:self
                                                     selector:@selector(updateTimer)
@@ -95,7 +89,9 @@
                                                      repeats:YES];
     
     self.isAtRest = FALSE;
-
+    [self.restLabel setAlpha:0.5];
+    [self.counterLabel setAlpha:1.0];
+// initializes main timer and sets the label states
 }
 - (void) initializeRestTimer {
     
@@ -107,23 +103,27 @@
     
     
     self.isAtRest = TRUE;
+    [self.restLabel setAlpha:1.0];
+    [self.counterLabel setAlpha:0.5];
+
 }
 
 - (void) updateCounterLabel {
-    
+
     NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:self.roundTime];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"mm : ss"];
+    [dateFormatter setDateFormat:@"mm:ss"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
     self.counterString = [dateFormatter stringFromDate:timeDate];
     self.counterLabel.text = self.counterString;
+
     
 }
 - (void) updateRestLabel {
     
     NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:self.restTime];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"mm : ss"];
+    [dateFormatter setDateFormat:@":ss"];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
     self.restString = [dateFormatter stringFromDate:timeDate];
     self.restLabel.text = self.restString;
@@ -177,6 +177,8 @@
 }
 - (IBAction)resetPressed:(UIButton *)sender {
     
+    self.isAtRest = FALSE;
+    
     [self.mainTimer invalidate];
     [self.restTimer invalidate];
     self.mainTimer = nil;
@@ -185,6 +187,10 @@
     self.roundTime = self.sliderValue;
     self.restTime  = 30.0;
     self.numberOfRounds = 0;
+    
+    [self.restLabel setAlpha:1.0];
+    [self.counterLabel setAlpha:1.0];
+
     
     [self updateRoundTime];
     [self updateRestTime];

@@ -25,8 +25,8 @@
     
     self.checkedWorkouts = 0;
     
-    if (self.workoutsData.workoutList.count == 0){
-    self.finishWorkoutButton.hidden = YES;
+    if ((self.workoutsData.workoutList.count == 0)||(self.workoutsData.workoutList.count != self.checkedWorkouts)){
+        self.finishWorkoutButton.hidden = YES;
     }
     
     self.workoutsData = [BuildManager sharedInstance];
@@ -70,7 +70,7 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete && !self.isSelected){
         [self.workoutsData.workoutList removeObjectAtIndex:indexPath.row];
-        
+    
         UITableViewCell *tableCell = [tableView cellForRowAtIndexPath:indexPath];
         tableCell.accessoryType = UITableViewCellAccessoryNone;
         
@@ -113,16 +113,22 @@
     
 }
 - (void) viewDidAppear:(BOOL)animated{
-    
+    if ((self.workoutsData.workoutList.count == 0)||(self.workoutsData.workoutList.count != self.checkedWorkouts)){
+        self.finishWorkoutButton.hidden = YES;
+    }
     [self.tableView reloadData];
 }
 - (void) viewWillAppear:(BOOL)animated{
+//provides a back button
     
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style: UIBarButtonItemStyleBordered target:self action:@selector(Back)];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                   style: UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
 }
-- (IBAction)Back
-{
+- (IBAction)Back{
+ //action for Back button
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)finishWorkoutPressed:(UIButton *)sender {
@@ -131,7 +137,6 @@
     self.workoutsData.workoutList = nil;
     self.finishWorkoutButton.hidden = YES;
     self.checkedWorkouts = 0;
-    
     
     [self.tableView reloadData];
    
